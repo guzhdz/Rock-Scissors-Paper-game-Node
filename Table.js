@@ -12,26 +12,22 @@ class Table {
         this.table.setHeading(`v PC\\User >`, ...this.movesList);
 
         for (let i = 0; i < this.movesList.length; i++) {
-            let row = [this.movesList[i]];
-            for (let j = 0; j < this.movesList.length; j++) {
-                switch(this.rules.getWinner(i + 1, j + 1)) {
+            let results = this.movesList.map((_, j) => {
+                switch(this.rules.getWinner(i, j)) {
                     case 0:
-                        row.push("Draw");
-                        break;
+                        return"Draw";
 
-                    case 1:
-                        row.push("Win");
-                        break;
+                    case -1:
+                        return "Win";
 
-                    case 2: 
-                        row.push("Lose");
-                        break;
+                    case 1: 
+                        return "Lose";
                     
                     default:
-                        row.push("-");
-                        break;
+                        return "-";
                 }
-            }
+            });
+            let row = [this.movesList[i], ...results];
             this.table.addRow(row);
         }
     }

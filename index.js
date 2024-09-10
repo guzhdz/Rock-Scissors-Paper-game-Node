@@ -64,7 +64,7 @@ const menu = (movesList, hmacObj, computerMove, rules, table) => {
 const results = (movesList, computerMove, move, rules, key) => {
     console.log('Your move: ', movesList[move - 1]);
     console.log('Computer move: ', movesList[computerMove - 1]);
-    let result = rules.winnerMessage(rules.getWinner(computerMove, move));
+    let result = rules.winnerMessage(rules.getWinner(computerMove - 1, move - 1));
     console.log(result);
     console.log("HMAC key: ", key);
 }
