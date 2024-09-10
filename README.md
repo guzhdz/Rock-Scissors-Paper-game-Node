@@ -26,4 +26,5 @@ The table generation should be in a separate class, the definition of the "rules
 THE NUMBER OF MOVES CAN BE ARBITRARY (odd and > 1, depending on the passed parameters), it is not hardwired into the code.
 
 Example:
+
 ![image](https://github.com/user-attachments/assets/3d0eaf9d-51f2-49c4-a0ef-86e5e4cf1dd7)
