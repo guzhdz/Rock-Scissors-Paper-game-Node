@@ -15,7 +15,7 @@ class Rules {
     }
 
     createRule(move1, move2) {
-        return (move1 - move2 + this.half + this.movesNum) % this.movesNum - this.half;
+        return Math.sign((move1 - move2 + this.half + this.movesNum) % this.movesNum - this.half);
     }
 
     getWinner(move1, move2) {

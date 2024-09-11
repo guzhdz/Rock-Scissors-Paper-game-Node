@@ -8,8 +8,8 @@ import Table from './Table.js';
 const getMoves = () => {
     const movesList = process.argv.slice(2);
 
-    if(movesList.length % 2 == 0 || movesList.length < 3) {
-        console.log("Error: You sould enter an odd number of movements, there sould be at least 3.");
+    if(movesList.length % 2 == 0 || movesList.length < 3 || new Set(movesList).size !== movesList.length) {
+        console.log("Error: You sould enter an odd number of different movements, there sould be at least 3.");
         console.log("(for example, Rock Paper Scissors or Rock Paper Scissors Lizard Spock or 1 2 3 4 5 6 7 8 9)");
         return null;
     } else {
@@ -72,8 +72,11 @@ const results = (movesList, computerMove, move, rules, key) => {
 
 const main = () => {
     const movesList = getMoves();
-    if(!movesList)
+    if(!movesList) {
+        rl.close();
         return;
+    }
+        
 
     const rules = new Rules(movesList);
     const table = new Table(movesList, rules);
